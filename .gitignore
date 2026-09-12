@@ -1,2 +1,13 @@
 .DS_Store
 Skeleton-gh-pages/
+
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# environment
+.env
+.env.production

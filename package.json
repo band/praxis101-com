@@ -1,0 +1,19 @@
+{
+  "name": "praxis101-net",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "praxis101.net — the archive home for Praxis101 work, blogs, and resources.",
+  "license": "MIT",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^5.0.0",
+    "tailwindcss": "^4.3.3"
+  }
+}

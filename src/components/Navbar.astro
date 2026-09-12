@@ -1,0 +1,27 @@
+---
+// Skeleton hid this navbar below 750px and docked it to the top on scroll.
+// The hide is kept; the dock is not — it depended on a jQuery file that has
+// been missing from the repo (and so dead on the live site) for years.
+const links = [
+  { href: 'https://praxis101.com/p5blog/p5blog-archives.html', label: 'Blog archive' },
+  { href: 'https://praxis101.com/', label: 'Earlier work' },
+  { href: 'https://bandstands.praxis101.net/', label: 'Massive Wiki work' },
+];
+---
+
+<nav class="hidden h-[65px] w-full border-y border-rule tablet:block">
+  <ul class="m-0 flex list-none">
+    {
+      links.map(({ href, label }) => (
+        <li class="mb-0">
+          <a
+            class="mr-[35px] text-[11px] font-semibold uppercase leading-[65px] tracking-[2px] text-ink no-underline hover:text-link-hover"
+            href={href}
+          >
+            {label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

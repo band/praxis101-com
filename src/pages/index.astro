@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/Navbar.astro';
+import { asset } from '../lib/asset';
+---
+
+<Base title="Praxis101: present and past.">
+  <div class="container-p5">
+    <header class="mt-[60px] text-center phablet:mt-[180px]">
+      <h4
+        class="mb-5 text-[24px] font-light leading-[1.35] tracking-[-0.8px] phablet:text-[30px]"
+      >
+        Praxis101: work practice and practical action.
+      </h4>
+    </header>
+
+    <Navbar />
+
+    <figure class="my-10 phablet:mt-[90px] phablet:mb-[70px]">
+      <img
+        class="mx-auto mt-[25px] block h-auto max-w-full phablet:mb-[10px]"
+        src={asset("images/rodantheSeashore-20080118.jpeg")}
+        alt="Surf and dune grass along the Cape Hatteras National Seashore"
+        width="1280"
+        height="536"
+      />
+      <figcaption class="text-center">Cape Hatteras seashore, January 2008.</figcaption>
+    </figure>
+
+    <section class="border-t border-rule py-10 phablet:py-[60px]">
+      <h6 class="mb-5 text-[14px] font-semibold uppercase tracking-[2px]">Colophon</h6>
+      <p class="mb-0">
+        Built with <a href="https://astro.build/">Astro</a> and
+        <a href="https://tailwindcss.com/">Tailwind CSS</a>, keeping the layout of the
+        <a href="https://github.com/dhg/Skeleton">Skeleton</a> original.
+      </p>
+    </section>
+  </div>
+</Base>

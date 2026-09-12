@@ -1,0 +1,60 @@
+/* `source(none)` disables Tailwind's automatic file detection. Auto-detection
+   was missing the Astro templates entirely while false-matching attributes
+   inside the SVGs under public (it generated a .fill-rule utility from an SVG
+   fill-rule attribute). The @source lines declare the real template set. */
+@import "tailwindcss" source(none);
+
+@source "../**/*.astro";
+@source "../**/*.ts";
+
+/* Design tokens lifted verbatim from Skeleton 2.0.4 + the site's custom.css,
+   converted from Skeleton's 62.5% root-font rem scale (1rem = 10px) to px. */
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-xs: 400px;
+  --breakpoint-phablet: 550px;
+  --breakpoint-tablet: 750px;
+
+  --font-sans: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --color-ink: #222;
+  --color-link: #1eaedb;
+  --color-link-hover: #0fa0ce;
+  --color-rule: #eee;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--color-ink);
+  }
+
+  a {
+    color: var(--color-link);
+  }
+
+  a:hover {
+    color: var(--color-link-hover);
+  }
+}
+
+@layer components {
+  /* Skeleton's .container, with custom.css's 800px cap folded in. */
+  .container-p5 {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+
+  @media (min-width: 400px) {
+    .container-p5 {
+      width: 85%;
+      padding-inline: 0;
+    }
+  }
+}
