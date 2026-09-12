@@ -2,8 +2,7 @@
 
 Rebuild of the old Skeleton site as an Astro + Tailwind site.
 
-Status as of **2026-09-12**: the page is built and works locally on branch `astro-port`.
-Not yet pushed; GitHub Pages not yet enabled.
+Status as of **2026-09-12**: built on Astro 7.3.2 + Tailwind 4.3.3, deployed to GitHub Pages.
 
 ## Scope for this pass
 
@@ -88,8 +87,6 @@ src/
 - **praxis101.com.** The live site currently resolves to AWS EC2 (`98.84.224.111`,
   `18.208.88.157`), not GitHub Pages. Moving it means a DNS change plus dropping `base` and
   setting `site` to the domain.
-- **Astro version.** Installed 5.18.2 (`^5.0.0`); 7.3.2 is current. A new project arguably belongs
-  on 7.
 - **Dead weight.** `dist/` is 11MB: 6.5MB is the unlinked 1985 PDF, most of the rest is the 16
   images nothing references. All carried over so nothing is lost; pruning is a content decision.
 - **Superseded files still in the tree** — root `index.html`, `blogs/index.html`, `css/*.css`,
