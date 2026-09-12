@@ -29,7 +29,8 @@ Everything else from the old repo is out of scope and deliberately untouched.
 
 ### Keeping the Skeleton look without Skeleton
 
-Values were read out of `git show main:css/skeleton.css` rather than recalled, and converted from
+Values were read out of `git show 05b0117:css/skeleton.css` rather than recalled (that commit is
+the last one holding the Skeleton CSS; it was pruned from the tree on 2026-09-12), and converted from
 Skeleton's 62.5% root-font rem scale (1rem = 10px) to px:
 
 - Raleway 300/400/600, body 15px / 1.6, ink `#222`
@@ -87,7 +88,19 @@ src/
 - **praxis101.com.** The live site currently resolves to AWS EC2 (`98.84.224.111`,
   `18.208.88.157`), not GitHub Pages. Moving it means a DNS change plus dropping `base` and
   setting `site` to the domain.
-- **Dead weight.** `dist/` is 11MB: 6.5MB is the unlinked 1985 PDF, most of the rest is the 16
-  images nothing references. All carried over so nothing is lost; pruning is a content decision.
-- **Superseded files still in the tree** — root `index.html`, `blogs/index.html`, `css/*.css`,
-  `bower.json`. Astro does not serve them; they are simply no longer used.
+(Pruned 2026-09-12 — see below. Nothing else is outstanding.)
+
+## Pruned 2026-09-12
+
+Removed 15 unreferenced images and the superseded `index.html`, `blogs/index.html`, `css/*.css`
+and `bower.json`. All recoverable from `05b0117`.
+
+Two things were **kept** after checking them against the live sites, which are still served from
+AWS and independent of this repo:
+
+- `public/works/Anderson_1985_4TypesOfFixes-CCI.pdf` — returns 200 at both
+  `praxis101.com/works/…` and `praxis101.net/works/…`. It is a published URL, and deleting it
+  would break that link the moment praxis101.com moves onto this repo.
+- `public/images/favicon.png` — returns 200 at `praxis101.com/images/favicon.png`.
+
+Every other image 404s on the live site and was referenced by nothing here.
