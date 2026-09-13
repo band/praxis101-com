@@ -60,3 +60,79 @@
     }
   }
 }
+
+@layer components {
+  /* Navbar dropdown panel, ported from p5lab's Skeleton .popover. The caret is
+     two stacked triangles — an 11px rule-coloured one behind a 10px white one —
+     so the arrow reads as a bordered continuation of the panel. It hangs off the
+     first item, as in the original, so hovering that item tints the caret too. */
+  .popover-p5 {
+    position: absolute;
+    top: 92%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    background: #fff;
+    border: 1px solid var(--color-rule);
+    border-radius: 4px;
+    filter: drop-shadow(0 0 6px rgb(0 0 0 / 0.1));
+  }
+
+  .popover-p5 a {
+    position: relative;
+    display: block;
+    padding: 8px 20px;
+    border-bottom: 1px solid var(--color-rule);
+    color: var(--color-ink);
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 1.6;
+  }
+
+  .popover-p5 li:first-child a {
+    border-radius: 4px 4px 0 0;
+  }
+
+  .popover-p5 li:last-child a {
+    border-bottom-width: 0;
+    border-radius: 0 0 4px 4px;
+  }
+
+  .popover-p5 a:hover {
+    background: var(--color-link);
+    color: #fff;
+  }
+
+  .popover-p5 li:first-child a::before,
+  .popover-p5 li:first-child a::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: solid transparent;
+    pointer-events: none;
+  }
+
+  .popover-p5 li:first-child a::before {
+    margin-left: -11px;
+    border-width: 11px;
+    border-bottom-color: var(--color-rule);
+  }
+
+  .popover-p5 li:first-child a::after {
+    margin-left: -10px;
+    border-width: 10px;
+    border-bottom-color: #fff;
+  }
+
+  .popover-p5 li:first-child a:hover::after {
+    border-bottom-color: var(--color-link);
+  }
+}

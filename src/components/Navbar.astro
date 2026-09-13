@@ -2,24 +2,58 @@
 // Skeleton hid this navbar below 750px and docked it to the top on scroll.
 // The hide is kept; the dock is not — it depended on a jQuery file that has
 // been missing from the repo (and so dead on the live site) for years.
-const links = [
+//
+// The "Massive Wiki work" dropdown is ported from p5lab's Skeleton popover
+// (~/Documents/Github/p5lab/public/index.html). That original used jQuery
+// click-toggle; this is <details>/<summary>, so click, keyboard and touch all
+// work with no script. As in the original, the parent is a trigger only —
+// bandstands moved into the menu and the label no longer links anywhere.
+type Leaf = { href: string; label: string };
+type Item = Leaf | { label: string; children: Leaf[] };
+
+const items: Item[] = [
   { href: 'https://praxis101.com/p5blog/p5blog-archives.html', label: 'Blog archive' },
   { href: 'https://praxis101.com/', label: 'Earlier work' },
-  { href: 'https://bandstands.praxis101.net/', label: 'Massive Wiki work' },
+  {
+    label: 'Massive Wiki work',
+    children: [
+      { href: 'https://markpub.org/', label: 'Markpub' },
+      { href: 'https://bandstands.praxis101.net/', label: 'bandstands' },
+    ],
+  },
 ];
+
+const topClass =
+  'mr-[35px] text-[11px] font-semibold uppercase leading-[65px] tracking-[2px] text-ink no-underline hover:text-link-hover';
 ---
 
 <nav class="hidden h-[65px] w-full border-y border-rule tablet:block">
   <ul class="m-0 flex list-none">
     {
-      links.map(({ href, label }) => (
-        <li class="mb-0">
-          <a
-            class="mr-[35px] text-[11px] font-semibold uppercase leading-[65px] tracking-[2px] text-ink no-underline hover:text-link-hover"
-            href={href}
-          >
-            {label}
-          </a>
+      items.map((item) => (
+        <li class="relative mb-0">
+          {'children' in item ? (
+            <details>
+              <summary
+                class={`${topClass} cursor-pointer list-none select-none [&::-webkit-details-marker]:hidden`}
+              >
+                {item.label}
+              </summary>
+              <div class="popover-p5">
+                <ul class="m-0 list-none p-0">
+                  {item.children.map(({ href, label }) => (
+                    <li class="mb-0">
+                      <a href={href}>{label}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </details>
+          ) : (
+            <a class={topClass} href={item.href}>
+              {item.label}
+            </a>
+          )}
         </li>
       ))
     }
