@@ -15,7 +15,9 @@
   --breakpoint-phablet: 550px;
   --breakpoint-tablet: 750px;
 
-  --font-sans: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* Supplied by <Font cssVariable="--font-p5" /> in Base.astro; Astro appends
+     metric-matched fallbacks plus the stack from astro.config.mjs. */
+  --font-sans: var(--font-p5);
 
   --color-ink: #222;
   --color-link: #1eaedb;
