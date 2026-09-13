@@ -1,9 +1,10 @@
 // Joins a path onto Astro's configured base.
 //
-// import.meta.env.BASE_URL is '/praxis101-com' (no trailing slash) under the
-// current config, but '/' when no base is set — so naive concatenation breaks
-// one case or the other. Normalising both sides keeps the two deploy targets
-// (GitHub Pages project site now, praxis101.com later) working unchanged.
+// import.meta.env.BASE_URL is '/' by default — the root-relative build that
+// gets uploaded to praxis101.com — and '/praxis101-com' (no trailing slash)
+// when the Pages workflow sets SITE_BASE. Naive concatenation breaks one case
+// or the other, so both sides are normalised and neither target needs a
+// source change.
 const base = import.meta.env.BASE_URL;
 
 export function asset(path: string): string {
