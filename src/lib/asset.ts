@@ -1,6 +1,6 @@
 // Joins a path onto Astro's configured base.
 //
-// import.meta.env.BASE_URL is '/praxis101-net' (no trailing slash) under the
+// import.meta.env.BASE_URL is '/praxis101-com' (no trailing slash) under the
 // current config, but '/' when no base is set — so naive concatenation breaks
 // one case or the other. Normalising both sides keeps the two deploy targets
 // (GitHub Pages project site now, praxis101.com later) working unchanged.

@@ -24,8 +24,9 @@ jobs:
       - name: Build with Astro
         uses: withastro/action@v3
         with:
-          # Astro 7 requires Node >= 22.12.0
-          node-version: 22
+          # Track current Node rather than pinning to Astro 7's >= 22.12.0 floor.
+          # Matches the version used locally.
+          node-version: 26
 
   deploy:
     needs: build

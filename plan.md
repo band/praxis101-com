@@ -1,4 +1,4 @@
-# praxis101-net — Astro port
+# praxis101-com — Astro port
 
 Rebuild of the old Skeleton site as an Astro + Tailwind site.
 
@@ -64,7 +64,7 @@ Skeleton's 62.5% root-font rem scale (1rem = 10px) to px:
   `public/`. The page would have shipped unstyled. Fixed with `source(none)` plus explicit
   `@source` lines in `global.css`.
 - **`import.meta.env.BASE_URL` carries no trailing slash**, so the first build emitted
-  `/praxis101-netimages/…`. All asset paths now go through `src/lib/asset.ts`, which normalises
+  `/praxis101-comimages/…`. All asset paths now go through `src/lib/asset.ts`, which normalises
   both sides. This is also what makes the praxis101.com move a one-line config change.
 
 ## Layout
@@ -87,7 +87,7 @@ src/
 ## Open
 
 - **Push and enable Pages.** Workflow triggers on `main`; this work is on `astro-port`. Pages is
-  not currently enabled on `band/praxis101-net`.
+  not currently enabled on `band/praxis101-com`.
 - **praxis101.com.** The live site currently resolves to AWS EC2 (`98.84.224.111`,
   `18.208.88.157`), not GitHub Pages. Moving it means a DNS change plus dropping `base` and
   setting `site` to the domain.
