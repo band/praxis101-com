@@ -33,7 +33,10 @@ Values were read out of `git show 05b0117:css/skeleton.css` rather than recalled
 the last one holding the Skeleton CSS; it was pruned from the tree on 2026-09-12), and converted from
 Skeleton's 62.5% root-font rem scale (1rem = 10px) to px:
 
-- Raleway 300/400/600, body 15px / 1.6, ink `#222`
+- body 15px / 1.6, ink `#222`; weights 300/400/600
+  - Skeleton's face was Raleway, loaded from Google Fonts. Replaced on 2026-09-13 with
+    Plus Jakarta Sans, self-hosted via Astro's `fonts` config and the Fontsource provider —
+    same weights, no third-party dependency at runtime. See `astro.config.mjs`.
 - links `#1EAEDB`, hover `#0FA0CE`, rules `#eee`
 - 800px centered column (Skeleton's `.container` with `custom.css`'s cap folded in)
 - Skeleton's real breakpoints — 400px, 550px, 750px — declared in `@theme` as `xs`, `phablet`,
